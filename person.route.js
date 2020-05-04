@@ -1,7 +1,7 @@
 const  express = require('express');
 const personRoutes = express.Router();
 
-let Person = require('./person.model.js');
+let Person = require('./person.model');
 
 
 // store data
@@ -17,7 +17,7 @@ personRoutes.route('/add').post(function(req,res){
 });
 
 // get data
-personRoutes.route('/persons').get(function(req,res){
+personRoutes.route('/').get(function(req,res){
     Person.find(function (err, person){
         if(err)
         console.log(err);
@@ -27,5 +27,3 @@ personRoutes.route('/persons').get(function(req,res){
     });
 
 });
-
-
